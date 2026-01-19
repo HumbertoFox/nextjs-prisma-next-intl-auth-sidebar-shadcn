@@ -1,0 +1,411 @@
+{
+    "LayoutApp": {
+        "MetaData": {
+            "Title": "Criar o próximo aplicativo",
+            "Description": "Gerado pelo aplicativo create next"
+        }
+    },
+    "HomePage": {
+        "LinkDashboard": "Painel",
+        "LinkLogin": "Conecte-se",
+        "LinkSignup": "Inscrever-se"
+    },
+    "LoginPage": {
+        "MetaData": {
+            "Title": "Conecte-se"
+        },
+        "LoginClient": {
+            "Titleh1": "Faça login na sua conta.",
+            "ParagrafText": "Insira seu e-mail e senha abaixo para fazer login.",
+            "LabelEmail": "Endereço de email",
+            "PlaceholderEmail": "email@exemplo.com",
+            "LabelPassword": "Senha",
+            "TextLinkForgotPassword": "Esqueceu sua senha?",
+            "PlaceholderPassword": "Senha",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "ButtonSubmit": "Conecte-se",
+            "TextDivLink": "Não existe nenhuma conta!",
+            "TextLinkSignup": "Inscrever-se"
+        },
+        "LoginUserActions": {
+            "ErrorIsValidCsrf": "Token de segurança inválido. Atualize a página e tente novamente.",
+            "ErrorWarning": "E-mail ou senha inválidos",
+            "MessageSuccess": "Autenticação realizada com sucesso! Redirecionando para o Painel de Controle, aguarde...",
+            "ErrorDataBaseConected": "Algo deu errado. Por favor, tente novamente mais tarde."
+        }
+    },
+    "RegisterPage": {
+        "MetaData": {
+            "User": "Cadastro de Usuário",
+            "Admin": "Cadastro de Administrador"
+        },
+        "TextPropsUser": "Cadastro de usuário",
+        "TextPropsAdmin": "Cadastro de administrador",
+        "RegisterAdminClient": {
+            "ParagrafText": "Insira seus dados abaixo para criar sua conta.",
+            "LabelImage": "Foto de perfil (opcional)",
+            "TextDivImage": "Sem imagem",
+            "LabelTitleImageCancelSelected": "Clique em Selecionar imagem e depois em Cancelar.",
+            "LabelTitleImageSelected": "Selecione a foto do perfil",
+            "LabelTextInputImage": "Selecione a imagem",
+            "LabelName": "Nome",
+            "PlaceholderName": "Nome completo",
+            "LabelEmail": "Endereço de email",
+            "PlaceholderEmail": "email@exemplo.com",
+            "LabelPassword": "Senha",
+            "PlaceholderPassword": "Senha",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "LabelPasswordConfirmation": "Confirme sua senha.",
+            "PlaceholderPasswordConfirmation": "Confirme sua senha.",
+            "ButtonSubmit": "Criar uma conta",
+            "TextDivLink": "Você já tem uma conta!",
+            "TextLinkSignin": "Conecte-se",
+            "MessageAccountCreated": "Conta criada com sucesso! Redirecionando para o Painel de Controle, aguarde..."
+        },
+        "CreateAdminActions": {
+            "IsValidCsrfWarning": "Token de segurança inválido. Atualize a página e tente novamente.",
+            "ExistingUserWarning": "Dados já cadastrados.",
+            "FormatsAvatarAllowedError": "Somente os formatos JPEG, PNG ou WebP são permitidos.",
+            "MaxSizeAvatarError": "A imagem não pode exceder 512 KB.",
+            "MaxDimensionError": "A imagem não pode exceder 512x512px. (atual: {Width}x{Height})",
+            "TryErrorReturn": "Não foi possível ler um avatar.",
+            "ErrorDataBaseReturn": "Algo deu errado. Por favor, tente novamente mais tarde."
+        }
+    },
+    "ForgotPasswordPage": {
+        "MetaData": {
+            "Title": "Esqueceu sua senha"
+        },
+        "ForgotPasswordClient": {
+            "Titleh1": "Esqueceu sua senha?",
+            "ParagrafText": "Insira seu e-mail para receber um link para redefinir sua senha.",
+            "LabelEmail": "Endereço de email",
+            "PlaceholderEmail": "email@exemplo.com",
+            "ButtonSubmit": "Link para redefinir a senha do e-mail",
+            "TextDivSpan": "Ou, volte para",
+            "TextLinkLogin": "Conecte-se"
+        },
+        "ForgotPasswordActions": {
+            "ErrorIsValidCsrf": "Token de segurança inválido. Atualize a página e tente novamente.",
+            "MessegeLinkSend": "Se o seu e-mail estiver cadastrado, você receberá um link para redefinir sua senha."
+        }
+    },
+    "ResetPasswordPage": {
+        "MetaData": {
+            "Title": "Redefinir senha"
+        },
+        "ResetPasswordClient": {
+            "Titleh1": "Redefinir senha",
+            "ParagrafText": "Por favor, insira sua nova senha abaixo.",
+            "LabelEmail": "Endereço de email",
+            "LabelPassword": "Senha",
+            "PlaceholderPassword": "Senha",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "LabelPasswordConfirmation": "Confirme sua senha.",
+            "PlaceholderPasswordConfirmation": "Confirme sua senha.",
+            "ButtonSubmit": "Redefinir senha"
+        },
+        "ResetPasswordActions": {
+            "ErrorIsValidCsrf": "Token de segurança inválido. Atualize a página e tente novamente.",
+            "ErrorInvalidToken": "Token inválido ou expirado.",
+            "MessageSeccess": "Senha redefinida com sucesso!"
+        },
+        "SendPasswordResetEmail": {
+            "SubJect": "Redefinição de senha",
+            "TextRequestedPassword": "Você solicitou uma redefinição de senha.",
+            "TextLinkCreatedPassword": "Clique no link abaixo para criar uma nova senha:",
+            "TextRequestIgnoreEmail": "Caso não tenha solicitado isso, ignore este e-mail."
+        }
+    },
+    "VerifyEmailPage": {
+        "MetaData": {
+            "Title": "Verificar e-mail"
+        },
+        "VerifyEmailClient": {
+            "Titleh1": "Verifique seu e-mail",
+            "ParagrafText": "Por favor, verifique seu endereço de e-mail clicando no link que acabamos de lhe enviar.",
+            "TextDivParagrafStatus": "Um novo link de verificação foi enviado para o endereço de e-mail que você forneceu durante o cadastro.",
+            "ButtonSubmit": "Reenviar e-mail de verificação",
+            "TextLinkLogin": "Conecte-se"
+        },
+        "HandleEmailVerificationActions": {
+            "ErrorIsValidCsrf": "Token de segurança inválido. Atualize a página e tente novamente.",
+            "ErrorNotAuthenticated": "Não autenticado",
+            "ErrorEmailVerified": "E-mail já verificado!",
+            "ErrorInvalidToken": "Token inválido ou expirado",
+            "ErrorSendingEmail": "Erro ao enviar e-mail",
+            "MessageSuccess": "Sucesso, e-mail verificado."
+        },
+        "SendEmailVerification": {
+            "SubJect": "Verifique seu e-mail.",
+            "Title": "Confirmação por e-mail",
+            "TextRequestedEmail": "Clique no link abaixo para confirmar seu e-mail:",
+            "TextRequestIgnoreEmail": "Se você não solicitou isso, pode ignorar este e-mail."
+        }
+    },
+    "AuthSplitLayout": {
+        "TextFooter": "Seu sistema de autenticação Next.js com Vercel."
+    },
+    "SettingsLayout": {
+        "Title": "Configurações",
+        "Description": "Gerencie seu perfil e as configurações da sua conta.",
+        "SettingsLayoutComponents": {
+            "SidebarNavSettings": "Configurações",
+            "SidebarNavProfile": "Perfil",
+            "SidebarNavPassword": "Senha",
+            "SidebarNavAppearance": "Aparência",
+            "SidebarNavLanguage": "Linguagem"
+        }
+    },
+    "DashboardPage": {
+        "MetaData": {
+            "Title": "Painel"
+        },
+        "BreadCrunmbTextDashboard": "Painel",
+        "DashboardSidebar": {
+            "LabelAdmins": "Administradores",
+            "AdminNav": {
+                "Admins": "Administradores",
+                "Users": "Usuários",
+                "RegisterUser": "Cadastro de usuário"
+            },
+            "LabelUsers": "Usuários",
+            "UserNav": {
+                "UserDashboard": "Painel"
+            }
+        },
+        "NavUser": {
+            "TextLinkSettings": "Configurações",
+            "TextLinkLogout": "Sair"
+        }
+    },
+    "LanguagePage": {
+        "MetaData": {
+            "Title": "Atualizar idioma"
+        },
+        "LanguagePageClient": {
+            "Titleh2": "Configurações de idioma",
+            "ParagrafText": "Atualize as configurações de idioma da sua conta.",
+            "TitleButtonEn": "Inglês",
+            "TitleButtonPt": "Português-BR"
+        }
+    },
+    "AppearancePage": {
+        "MetaData": {
+            "Title": "Aparência do sistema"
+        },
+        "AppearancePageClient": {
+            "LabelLight": "Luz",
+            "LabelDark": "Escuro",
+            "LabelSystem": "Sistema",
+            "Titleh2": "Configurações de aparência",
+            "ParagrafText": "Atualize as configurações de aparência da sua conta."
+        }
+    },
+    "PasswordPage": {
+        "MetaData": {
+            "Title": "Atualizar senha do usuário"
+        },
+        "PasswordPageClient": {
+            "Titleh2": "Atualizar senha",
+            "ParagrafText": "Certifique-se de que sua conta utilize uma senha longa e aleatória para garantir sua segurança.",
+            "LabelCurrentPassword": "Senha atual",
+            "PlaceholderCurrentPassword": "Senha atual",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "LabelNewPassword": "Nova Senha",
+            "PlaceholderNewPassword": "Nova Senha",
+            "LabelConfirmNewPassword": "Confirme sua nova senha.",
+            "PlaceholderConfirmNewPassword": "Confirme sua nova senha.",
+            "ButtonSubmit": "Salvar senha",
+            "ParagrafSaved": "Salvo"
+        },
+        "UpdatePasswordActions": {
+            "ErrorsPassword": "A senha atual está incorreta.",
+            "ErrorsCurrentPassword": "A nova senha não pode ser igual à antiga."
+        }
+    },
+    "ProfilePage": {
+        "MetaData": {
+            "Title": "Perfil do Usuário"
+        },
+        "ProfilePageClient": {
+            "Titleh1": "Informações do perfil",
+            "ParagrafText": "Atualize sua foto, nome e endereço de e-mail.",
+            "LabelName": "Nome",
+            "PlaceholderName": "Nome completo",
+            "LabelEmail": "Endereço de email",
+            "PlaceholderEmail": "email@exemplo.com",
+            "ParagrafTextButton": "Seu endereço de e-mail não foi verificado.",
+            "ButtonText": "Clique aqui para reenviar o e-mail de verificação.",
+            "StatusText": "Um novo link de verificação foi enviado para o seu endereço de e-mail.",
+            "LabelImage": "Foto de perfil (opcional)",
+            "TextDivImage": "Sem imagem",
+            "LabelTextInputImage": "Selecione a imagem",
+            "ButtonTextSave": "Salvar",
+            "ParagrafSaved": "Salvo"
+        },
+        "DeleteUser": {
+            "ParagrafNoticeOne": "Perceber",
+            "ParagrafNoticeTwo": "Proceda com cautela, esta ação é irreversível.",
+            "DialogTrigger": "Excluir conta",
+            "DialogTitle": "Tem certeza de que deseja excluir sua conta?",
+            "DialogDescription": "Após excluir sua conta, todos os seus recursos e dados também serão excluídos permanentemente. Digite sua senha para confirmar que deseja excluir sua conta permanentemente.",
+            "LabelPassword": "Senha",
+            "PlaceholderPassword": "Senha",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "DialogClose": "Cancelar",
+            "ButtonSubmitDelete": "Excluir conta"
+        },
+        "DeleteUserActions": {
+            "ErrorsPssword": "Senha incorreta"
+        },
+        "UpdateUserActions": {
+            "ErrorsEmailInUse": "Este endereço de e-mail já está em uso.",
+            "FormatsAvatarAllowedError": "Somente os formatos JPEG, PNG ou WebP são permitidos.",
+            "MaxSizeAvatarError": "A imagem não pode exceder 512 KB.",
+            "ErrorsSendingAvatar": "Erro ao enviar a imagem. Tente novamente.",
+            "MessageNoChanges": "Nenhuma alteração foi feita."
+        }
+    },
+    "SettingsPage": {
+        "MetaData": {
+            "Title": "Configurações"
+        },
+        "SettingsPageClient": {
+            "TextId": "Código",
+            "TextRole": "Tipo de conta",
+            "TextCreated": "Usuário criado em",
+            "TextUpdated": "Usuário atualizou em"
+        },
+        "Heading": {
+            "BreadcrumbDashboard": "Painel",
+            "BreadcrumbSettings": "Configurações",
+            "BreadcrumbProfile": "Perfil",
+            "BreadcrumbPassword": "Senha",
+            "BreadcrumbAppearance": "Aparência",
+            "BreadcrumbLanguage": "Linguagem"
+        }
+    },
+    "AdminsPage": {
+        "MetaData": {
+            "Title": "Administradores"
+        },
+        "BreadcrumbDashboard": "Painel",
+        "BreadcrumbAdmins": "Administradores",
+        "ThNumberList": "N°.",
+        "ThId": "Código.",
+        "ThName": "Nome",
+        "ThEmail": "E-mail",
+        "ThActions": "Ações",
+        "TcNoAdmin": "Não existem outros administradores.",
+        "TcLinkTitle": "Para atualizar {AdminName}",
+        "TcLinkAriaLabelIcon": "Para atualizar {AdminName}",
+        "DialogTriggerButtonTitleIf": "Excluir {AdminName}",
+        "DialogTriggerAriaLabelIconIf": "Excluir {AdminName}",
+        "DialogTitleIf": "Tem certeza?",
+        "DialogDescriptionIf": "Após a confirmação, o usuário administrador {AdminName} não poderá mais acessar o sistema!",
+        "DialogCloseIf": "Cancelar",
+        "ButtonSubmitDelete": "Sim, apague!",
+        "DialogTriggerButtonTitleElse": "Ativar {AdminName}",
+        "DialogTriggerAriaLabelIconElse": "Ativar {AdminName}",
+        "DialogTitleElse": "Tem certeza?",
+        "DialogDescriptionElse": "Após a confirmação, você ativará a conta de usuário administrador {AdminName}!",
+        "DialogCloseElse": "Cancelar",
+        "ButtonSubmitActivate": "Sim, ative!",
+        "UsersPage": {
+            "MetaData": {
+                "Title": "Usuários"
+            },
+            "BreadcrumbDashboard": "Painel",
+            "BreadcrumbAdmins": "Administradores",
+            "BreadcrumbUsers": "Usuários",
+            "ThNumberList": "N°.",
+            "ThId": "Código.",
+            "ThName": "Nome",
+            "ThEmail": "E-mail",
+            "ThActions": "Ações",
+            "TcNoUser": "Não há usuários registrados.",
+            "TcLinkTitle": "Para atualizar {UserName}",
+            "TcLinkAriaLabelIcon": "Para atualizar {UserName}",
+            "DialogTriggerButtonTitleIf": "Excluir {UserName}",
+            "DialogTriggerAriaLabelIconIf": "Excluir {UserName}",
+            "DialogTitleIf": "Tem certeza?",
+            "DialogDescriptionIf": "Após a confirmação, o usuário {UserName} não poderá mais acessar o sistema!",
+            "DialogCloseIf": "Cancelar",
+            "ButtonSubmitDelete": "Sim, apague!",
+            "DialogTriggerButtonTitleElse": "Ativar {UserName}",
+            "DialogTriggerAriaLabelIconElse": "Ativar {UserName}",
+            "DialogTitleElse": "Tem certeza?",
+            "DialogDescriptionElse": "Após a confirmação, você ativará a conta de usuário {UserName}!",
+            "DialogCloseElse": "Cancelar",
+            "ButtonSubmitActivate": "Sim, ative!"
+        },
+        "RegisterUsersPage": {
+            "MetaData": {
+                "Title": "Cadastro de usuário"
+            },
+            "BreadcrumbDashboard": "Painel",
+            "BreadcrumbAdmins": "Administradores",
+            "BreadcrumbRegister": "Cadastre-se",
+            "TextPropsTitleForm": "Registrar conta de usuário",
+            "TextPropsValueButton": "Cadastre-se"
+        },
+        "UpdateUserPage": {
+            "MetaData": {
+                "Title": "Atualizar usuário"
+            },
+            "BreadcrumbDashboard": "Painel",
+            "BreadcrumbAdmins": "Administradores",
+            "BreadcrumbUpdateUser": "Atualizar usuário",
+            "TextPropsTitleFrom": "Atualizar conta de usuário",
+            "TextPropsValueButton": "Atualizar conta"
+        },
+        "RegisterUpdateUserForm": {
+            "ParagrafTextUpdateUser": "Insira os dados do usuário abaixo para atualizar a conta.",
+            "ParagrafTextCreatedUser": "Insira os dados abaixo para criar uma conta.",
+            "LabelImage": "Foto de perfil (opcional)",
+            "TextDivImage": "Sem imagem",
+            "LabelTitleImageCancelSelected": "Clique em Selecionar imagem e depois em Cancelar.",
+            "LabelTitleImageSelected": "Selecione a foto do perfil",
+            "LabelTextInputImage": "Selecione a imagem",
+            "LabelId": "Code.",
+            "LabelName": "Nome",
+            "PlaceholderName": "Nome completo",
+            "LabelEmail": "Endereço de email",
+            "PlaceholderEmail": "email@exemplo.com",
+            "LabelPassword": "Senha",
+            "PlaceholderPassword": "Senha",
+            "ButtonTitlePasswordHide": "Ocultar senha",
+            "ButtonTitlePasswordShow": "Mostrar senha",
+            "LabelPasswordConfirmation": "Confirme sua senha.",
+            "PlaceholderPasswordConfirmation": "Confirme sua senha.",
+            "LabelRole": "Tipo de conta",
+            "SelectTrigger": "Selecione o tipo de conta.",
+            "SelectValuePlaceholder": "Tipo de conta",
+            "SelectItemTypeUser": "Usuário",
+            "SelectItemTypeAdmin": "Administrador"
+        },
+        "CreateUpdateAdminUserActions": {
+            "FormatsAvatarAllowedError": "Somente os formatos JPEG, PNG ou WebP são permitidos.",
+            "MaxSizeAvatarError": "A imagem não pode exceder 512 KB.",
+            "MaxDimensionError": "A imagem não pode exceder 512x512px. (atual: {Width}x{Height})",
+            "TryErrorReturn": "Não foi possível ler a imagem.",
+            "ErrorEmailInUse": "Este endereço de e-mail já está em uso!"
+        }
+    },
+    "HandleAvatarChange": {
+        "FormatsAvatarAllowedError": "Somente os formatos JPEG, PNG ou WebP são permitidos.",
+        "MaxSizeAvatarError": "A imagem não pode exceder 512 KB.",
+        "MaxDimensionError": "A imagem não pode exceder 512x512px. (atual: {Width}x{Height})",
+        "TryErrorReturn": "Não foi possível ler a imagem."
+    },
+    "NotFound": {
+        "TextTitle": "Página não encontrada",
+        "TextParagraf": "Desculpe, não conseguimos encontrar a página que você está procurando."
+    }
+}

@@ -1,0 +1,154 @@
+'use client';
+
+import { Eye, EyeClosed, LoaderCircle } from 'lucide-react';
+import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
+import { InputError } from '@/_components/input-error';
+import { TextLink } from '@/_components/text-link';
+import { Button } from '@/_components/ui/button';
+import { Input } from '@/_components/ui/input';
+import { Label } from '@/_components/ui/label';
+import { loginUser } from '@/app/api/actions/loginuser';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { csrfTokenProps, LoginFormProps } from '@/_types';
+import { useTranslations } from 'next-intl';
+
+export function LoginClient({
+    csrfToken
+}: csrfTokenProps) {
+    const t = useTranslations('LoginPage.LoginClient');
+    const searchParams = useSearchParams();
+    const emailFromParams = searchParams.get('email') ?? '';
+    const statusFromParams = searchParams.get('status');
+    const router = useRouter();
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
+    const [state, action, pending] = useActionState(loginUser, undefined);
+    const [isVisibledPassword, setIsVisibledPassword] = useState<boolean>(false);
+    const [data, setData] = useState<LoginFormProps>({
+        email: emailFromParams,
+        password: '',
+    });
+
+    const togglePasswordVisibility = () => setIsVisibledPassword(!isVisibledPassword);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, value } = e.target;
+        setData({ ...data, [id]: value });
+    };
+    const submit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        if (csrfToken) formData.append('csrfToken', csrfToken);
+        startTransition(() => action(formData));
+    };
+    useEffect(() => {
+        if (!state?.message) return;
+
+        if (state?.warning && emailRef.current) {
+            emailRef.current.focus();
+        };
+
+        startTransition(() => {
+            setData({
+                email: '',
+                password: ''
+            });
+        });
+        router.push('/dashboard');
+    }, [state, router]);
+    return (
+        <div className="space-y-6">
+            <div className="flex flex-col items-center gap-2 text-center mx-auto">
+                <h1 className="text-xl font-medium">{t('Titleh1')}</h1>
+                <p className="text-muted-foreground text-sm text-balance">{t('ParagrafText')}</p>
+            </div>
+            <form
+                onSubmit={submit}
+                className="w-full max-w-xs flex flex-col gap-6 mx-auto"
+            >
+                <div className=" grid gap-6">
+                    <div className="grid gap-2">
+                        <Label htmlFor="email">{t('LabelEmail')}</Label>
+                        <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            ref={emailRef}
+                            required
+                            disabled={Boolean(emailFromParams)}
+                            autoFocus
+                            tabIndex={1}
+                            autoComplete="email"
+                            value={data.email}
+                            onChange={handleChange}
+                            placeholder={t('PlaceholderEmail')}
+                        />
+                        {state?.errors?.email?.[0] && <InputError message={state.errors.email[0]} />}
+                    </div>
+
+                    <div className="grid gap-2">
+                        <div className="flex items-center">
+                            <Label htmlFor="password">{t('LabelPassword')}</Label>
+                            {!statusFromParams && (
+                                <TextLink
+                                    href="/forgot-password"
+                                    className="ml-auto text-sm"
+                                    tabIndex={5}
+                                >
+                                    {t('TextLinkForgotPassword')}
+                                </TextLink>
+                            )}
+                        </div>
+
+                        <div className="relative">
+                            <Input
+                                id="password"
+                                name="password"
+                                type={isVisibledPassword ? "text" : "password"}
+                                ref={passwordRef}
+                                required
+                                tabIndex={2}
+                                autoComplete="current-password"
+                                value={data.password}
+                                onChange={handleChange}
+                                placeholder={t('PlaceholderPassword')}
+                            />
+                            <button
+                                type="button"
+                                title={isVisibledPassword ? t('ButtonTitlePasswordHide') : t('ButtonTitlePasswordShow')}
+                                onClick={togglePasswordVisibility}
+                                className="btn-icon-toggle"
+                            >
+                                {isVisibledPassword ? <Eye /> : <EyeClosed />}
+                            </button>
+                        </div>
+                        {state?.errors?.password?.[0] && <InputError message={state.errors.password[0]} />}
+                    </div>
+
+                    <Button
+                        type="submit"
+                        className="mt-4 w-full"
+                        tabIndex={3}
+                        disabled={pending}
+                    >
+                        {pending && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                        {t('ButtonSubmit')}
+                    </Button>
+
+                    <div className="text-muted-foreground text-center text-sm">
+                        {t('TextDivLink')}&nbsp;&nbsp;
+                        <TextLink
+                            href="/register"
+                            tabIndex={4}
+                        >
+                            {t('TextLinkSignup')}
+                        </TextLink>
+                    </div>
+                </div>
+            </form>
+
+            {statusFromParams && <div className="mb-4 text-center text-sm font-medium text-blue-600">{statusFromParams}</div>}
+            {state?.message && <div className="mb-4 text-center text-sm font-medium text-blue-600">{state.message}</div>}
+            {state?.warning && <div className="mb-4 text-center text-sm font-medium text-red-400">{state.warning}</div>}
+        </div>
+    );
+}

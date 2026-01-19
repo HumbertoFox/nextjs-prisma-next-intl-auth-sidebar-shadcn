@@ -1,0 +1,81 @@
+'use client';
+
+import { LoaderCircle } from 'lucide-react';
+import { FormEvent, startTransition, useActionState, useEffect } from 'react';
+import { TextLink } from '@/_components/text-link';
+import { Button } from '@/_components/ui/button';
+import { useSearchParams } from 'next/navigation';
+import { handleEmailVerification } from '@/app/api/actions/handleemailverification';
+import { csrfTokenProps } from '@/_types';
+import { useTranslations } from 'next-intl';
+
+export default function VerifyEmailClient({
+    csrfToken
+}: csrfTokenProps) {
+    const t = useTranslations('VerifyEmailPage.VerifyEmailClient');
+    const searchParams = useSearchParams();
+    const email = searchParams.get('email');
+    const token = searchParams.get('token');
+    const [state, action, pending] = useActionState(handleEmailVerification, undefined);
+    const submit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        if (csrfToken) formData.append('csrfToken', csrfToken);
+        startTransition(() => action(formData));
+    };
+    useEffect(() => {
+        if (email && token) {
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('token', token);
+            startTransition(() => action(formData));
+        }
+    }, [email, token, action]);
+    return (
+        <div className="space-y-6">
+            <div className="flex flex-col items-center gap-2 text-center mx-auto">
+                <h1 className="text-xl font-medium">{t('Titleh1')}</h1>
+                <p className="text-muted-foreground text-sm text-balance">{t('ParagrafText')}</p>
+            </div>
+            {state?.status === 'verification-link-sent' && (
+                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                    <p>{t('TextDivParagrafStatus')}</p>
+                </div>
+            )}
+            {state?.success && <div className="mb-4 text-center text-sm font-medium text-blue-600">{state.success}</div>}
+            {state?.error && <div className="mb-4 text-center text-sm font-medium text-red-600">{state.error}</div>}
+
+            <form
+                onSubmit={submit}
+                className="space-y-6 text-center"
+            >
+                <input
+                    type="hidden"
+                    name="email"
+                    value={email ?? ''}
+                />
+                <input
+                    type="hidden"
+                    name="token"
+                    value={token ?? ''}
+                />
+                <Button
+                    type="submit"
+                    variant="secondary"
+                    disabled={pending || state?.status === 'verification-email-sent' || Boolean(state?.error)}
+                    className="cursor-pointer"
+                >
+                    {pending && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                    {t('ButtonSubmit')}
+                </Button>
+
+                <TextLink
+                    href={!state?.status ? "/login" : `/login?status=email%20verified&email=${email}`}
+                    className="mx-auto block text-sm"
+                >
+                    {t('TextLinkLogin')}
+                </TextLink>
+            </form>
+        </div>
+    );
+}
